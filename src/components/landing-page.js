@@ -10,6 +10,7 @@ import algorithm_icon from '../images/algorithm.svg'
 
 
 export function LandingPage(props) {
+  console.log('LANDING PAGE', props);
   // // If we are logged in redirect straight to the user's dashboard
   if (props.loggedIn) {
       return <Redirect to="/dashboard" />;
