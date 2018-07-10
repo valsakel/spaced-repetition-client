@@ -8,6 +8,12 @@
     transition: all .3s;
 }
 
+.login-link,
+.register-link,
+.demo-btn {
+    align-self: center;
+}
+
 .login-link, .register-link {
     font-size: calc(0.6rem + .9vw);
     white-space: nowrap;
