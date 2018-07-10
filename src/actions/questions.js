@@ -15,23 +15,23 @@ export const fetchQuestionsError = error => ({
 
 export const fetchQuestions = () => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
-  const dummyArray = [{
-    question: 'ПРИВЕТ',
-    answer: 'HELLO'
-  }];
-  dispatch(fetchQuestionsSuccess(dummyArray))
+  // const dummyArray = [{
+  //   question: 'ПРИВЕТ',
+  //   answer: 'HELLO'
+  // }];
+  // dispatch(fetchQuestionsSuccess(dummyArray))
 
-  // return fetch(`${API_BASE_URL}/protected`, {
-  //   method: 'GET',
-  //   headers: {
-  //     // Provide our auth token as credentials
-  //     Authorization: `Bearer ${authToken}`
-  //   }
-  // })
-  //   .then(res => normalizeResponseErrors(res))
-  //   .then(res => res.json())
-  //   .then(({data}) => dispatch(fetchQuestionsSuccess(data)))
-  //   .catch(err => {
-  //     dispatch(fetchQuestionsError(err));
-  //   });
+  return fetch(`${API_BASE_URL}/questions`, {
+    method: 'GET',
+    headers: {
+      // Provide our auth token as credentials
+      Authorization: `Bearer ${authToken}`
+    }
+  })
+    .then(res => normalizeResponseErrors(res))
+    .then(res => res.json())
+    .then(data => dispatch(fetchQuestionsSuccess(data)))
+    .catch(err => {
+      dispatch(fetchQuestionsError(err));
+    });
 };

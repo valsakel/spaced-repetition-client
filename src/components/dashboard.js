@@ -22,9 +22,9 @@ export class Dashboard extends React.Component {
 
     render() {
 
-      if (this.props.questions[0]) {
-        console.log(this.props.questions[0].question);
-      }
+      // if (this.props.questions[0]) {
+        // console.log(this.props.questions[0]);
+      // }
 
         return (
             <div className="dashboard">
