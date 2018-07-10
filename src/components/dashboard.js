@@ -29,12 +29,22 @@ export class Dashboard extends React.Component {
           questionIndex: 0
         });
       }
-      console.log('INDEX', this.state.questionIndex);
     } else {
       console.log('Answer is wrong');
     }
 
+    const obj = {
+      currQuestion: this.props.questions.data[this.state.questionIndex].q,
+      userAnswer: this.input.value
+    };
 
+    // clear user input
+    this.input.value = '';
+
+    // set focus back to input field
+    this.input.focus();
+
+    console.log('user input to be sent', obj);
   };
 
     render() {
