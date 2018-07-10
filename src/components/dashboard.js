@@ -4,40 +4,58 @@ import requiresLogin from './requires-login';
 import {fetchQuestions} from '../actions/questions';
 
 export class Dashboard extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      questionIndex: 0
+    }
+  }
+
   componentDidMount() {
       this.props.dispatch(fetchQuestions());
   }
 
-
-
   onSubmit = (e) => {
     e.preventDefault();
     console.log('onSubmit answer ran');
-    if (this.input.value === this.props.questions[0].answer) {
+    if (this.input.value === this.props.questions.data[this.state.questionIndex].a) {
       console.log('Answer is correct');
+      if (this.state.questionIndex < 2) {
+        this.setState({
+          questionIndex: ++this.state.questionIndex
+        });
+      } else {
+        this.setState({
+          questionIndex: 0
+        });
+      }
+      console.log('INDEX', this.state.questionIndex);
     } else {
       console.log('Answer is wrong');
     }
+
+
   };
 
     render() {
-
-      // if (this.props.questions[0]) {
-        // console.log(this.props.questions[0]);
-      // }
-
+      console.log('RENDER', this.props.questions.data.length);
         return (
             <div className="dashboard">
                 <div className="dashboard-username">
                     Username: {this.props.username}
                 </div>
                 <div className="dashboard-name">Name: {this.props.name}</div>
-                <div className="dashboard-protected-data">
-                    {/*Protected data: {this.props.questions}*/}
-                </div>
+                {/*<div className="dashboard-protected-data">*/}
+                  {/*{question}*/}
+                {/*</div>*/}
                 <div className="">
                   <div>
-                    {/*<p>{this.props.questions[0].question}</p>*/}
+                    { this.props.questions.data.length > 0
+                      ?
+                      this.props.questions.data[this.state.questionIndex].q
+                      :
+                      <p>hello</p>
+                    }
                   </div>
                   <label>
                     <input
@@ -71,7 +89,8 @@ const mapStateToProps = state => {
     return {
         username: state.auth.currentUser.username,
         name: `${currentUser.firstName} ${currentUser.lastName}`,
-        questions: state.questions.data
+        questions: state.questions,
+        questionIndex: 0
     };
 };
 
