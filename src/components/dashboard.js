@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import requiresLogin from './requires-login';
 import {fetchQuestions} from '../actions/questions';
+import {updateCorrectAnswer} from '../actions/answer';
 
 export class Dashboard extends React.Component {
   constructor(props) {
@@ -38,8 +39,10 @@ export class Dashboard extends React.Component {
       userAnswer: this.input.value
     };
 
+    this.props.dispatch(updateCorrectAnswer(this.props.questions.data[this.state.questionIndex].q));
+
     // clear user input
-    this.input.value = '';
+    // this.input.value = '';
 
     // set focus back to input field
     this.input.focus();
@@ -55,9 +58,9 @@ export class Dashboard extends React.Component {
                     Username: {this.props.username}
                 </div>
                 <div className="dashboard-name">Name: {this.props.name}</div>
-                {/*<div className="dashboard-protected-data">*/}
-                  {/*{question}*/}
-                {/*</div>*/}
+                <div className="dashboard-protected-data">
+
+                </div>
                 <div className="">
                   <div>
                     { this.props.questions.data.length > 0
@@ -65,6 +68,16 @@ export class Dashboard extends React.Component {
                       this.props.questions.data[this.state.questionIndex].q
                       :
                       <p>hello</p>
+                    }
+                  </div>
+                  <div>
+                    { this.props.answers.correctAnswer
+                      ?
+                      <p>
+                        Answer is: {this.props.answers.correctAnswer}
+                      </p>
+                      :
+                      <p>What is the answer?</p>
                     }
                   </div>
                   <label>
@@ -85,7 +98,11 @@ export class Dashboard extends React.Component {
                   >
                     Submit
                   </button>
-                  <button disabled>Next</button>
+                  <button
+                    disabled={!this.props.answers.correctAnswer}
+                  >
+                    Next
+                  </button>
                 </div>
 
 
@@ -100,6 +117,7 @@ const mapStateToProps = state => {
         username: state.auth.currentUser.username,
         name: `${currentUser.firstName} ${currentUser.lastName}`,
         questions: state.questions,
+        answers: state.answer,
         questionIndex: 0
     };
 };

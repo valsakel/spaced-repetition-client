@@ -6,6 +6,7 @@ import {loadAuthToken} from './local-storage';
 import authReducer from './reducers/auth';
 import protectedDataReducer from './reducers/protected-data';
 import questionsReducer from './reducers/questions-reducer';
+import answerReducer from './reducers/answer-reducer';
 import {setAuthToken, refreshAuthToken} from './actions/auth';
 
 const store = createStore(
@@ -13,7 +14,8 @@ const store = createStore(
         form: formReducer,
         auth: authReducer,
         protectedData: protectedDataReducer,
-        questions: questionsReducer
+        questions: questionsReducer,
+        answer: answerReducer
     }),
     composeWithDevTools(
       applyMiddleware(thunk)
