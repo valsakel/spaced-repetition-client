@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 
 import NavBar from "./nav-bar";
 
-import './header-bar-new.css'
+import './header-bar.css'
 
 class HeaderBarNew extends React.Component {
   render() {

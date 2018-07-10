@@ -1,0 +1,115 @@
+/* local styles for landing page */
+
+.lp-main-section {
+
+    /*height: calc(90vh - 3vw);*/
+    background: linear-gradient(#210d44, #9198e5);
+
+}
+
+.lp-hero-section {
+    height: calc(45vh - 3vw);
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content:center;
+    color: #ffffff;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 5% 0 5% 0;
+}
+
+
+.lp-hero-header {
+    font-size: calc(1.3rem + .9vw);
+    line-height: calc(2rem + .9vw);
+    padding: 0 10% 0 10%;
+    text-align: center;
+}
+
+.lp-hero-btn {
+    font-size: calc(0.8rem + .9vw);
+    padding: 1% 2% 1% 2%;
+    white-space: nowrap;
+    color: #210d44;
+    background-color: #f89809;
+    background-image: linear-gradient(#f89809, #ffc875);
+    box-shadow: 0px 1px 4px -2px #333;
+    /*text-shadow: 0px -1px #333;*/
+
+    border: #f4ad45 2px solid;
+    /*border: #f39d1e 2px solid;*/
+
+
+    border-radius: 22px;
+    transition: all .3s;
+    text-decoration: none;
+    margin-top: 5%;
+}
+
+.lp-hero-btn:after {
+
+    /*background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.2));*/
+}
+
+.lp-hero-btn:hover,
+.lp-hero-btn:focus {
+    color: #f89809;
+    background-color: transparent;
+    background-image: linear-gradient(transparent, transparent);
+    /*background: linear-gradient(#073,#0fa);*/
+}
+
+.lp-about-section {
+    height: calc(45vh);
+    background-color: #ffffff;
+    border-radius: 50px 50px 0 0;
+    padding: 5% 0 5% 0;
+}
+
+/*.lp-about-section-details div {*/
+/*flex: 1;*/
+/*margin-right: 10px;*/
+/*}*/
+
+/*.lp-about-section-details div:last-child {*/
+
+/*margin-right: 0;*/
+/*}*/
+
+.lp-about-section h3 {
+    text-align: center;
+    font-size: calc(1.2rem + .8vw);
+    padding: 0 5% 0 5%;
+}
+
+.lp-about-section-details {
+    display: flex;
+    flex-wrap: wrap;
+    /*flex-direction: column;*/
+    justify-content: center;
+}
+
+.lp-about-section-details div {
+    /*flex: 1;*/
+    /*margin-right: 10px;*/
+    width: 200px;
+    /*min-width: 150px;*/
+    padding-left: 5%;
+}
+
+.lp-about-section-details div:last-child {
+    padding-right: 5%;
+    /*margin-right: 0;*/
+}
+
+.lp-about-section-details p {
+    height: 20vh;
+}
+
+.lp-about-section-icon {
+    display: block;
+    margin: 0 auto;
+    width: 71px;
+    height: 71px;
+}
