@@ -6,6 +6,8 @@ import LoginForm from './login-form';
 
 import './landing-page.css';
 import algorithm_icon from '../images/algorithm.svg'
+import pantone_icon from '../images/pantone.svg'
+import alarmclock_icon from '../images/alarm-clock.svg';
 
 
 
@@ -47,7 +49,7 @@ export function LandingPage(props) {
               {/*<div>*/}
               <img
                 className="lp-about-section-icon"
-                src={algorithm_icon}
+                src={alarmclock_icon}
                 alt="algorithm"
               />
               {/*</div>*/}
@@ -73,12 +75,11 @@ export function LandingPage(props) {
             <div>
               <img
                 className="lp-about-section-icon"
-                src={algorithm_icon}
+                src={pantone_icon}
                 alt="algorithm"
               />
               <p>
-                Built-in spaced repetition algorithm ensures that you keep learning
-                words that don't stick.
+                Carefully chosen color scheme for this app is intended to increase brain recognition and stimulate memory.
 
               </p>
             </div>
@@ -90,6 +91,8 @@ export function LandingPage(props) {
       {/*<LoginForm />*/}
 
       {/*<Link to="/register">Check it out</Link>*/}
+      {/*<div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>*/}
+      {/*<div>Icons made by <a href="https://www.flaticon.com/authors/alfredo-hernandez" title="Alfredo Hernandez">Alfredo Hernandez</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>*/}
       {/*<div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>*/}
     </React.Fragment>
 
