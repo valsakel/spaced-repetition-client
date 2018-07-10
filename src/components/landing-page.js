@@ -11,9 +11,9 @@ import algorithm_icon from '../images/algorithm.svg'
 
 export function LandingPage(props) {
   // // If we are logged in redirect straight to the user's dashboard
-  // if (props.loggedIn) {
-  //     return <Redirect to="/dashboard" />;
-  // }
+  if (props.loggedIn) {
+      return <Redirect to="/dashboard" />;
+  }
 
   return (
     <React.Fragment>

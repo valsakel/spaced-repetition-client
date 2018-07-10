@@ -8,7 +8,7 @@
     transition: all .3s;
 }
 
-.signin-btn, .signup-btn {
+.login-link, .register-link {
     font-size: calc(0.6rem + .9vw);
     white-space: nowrap;
     color: #ffffff;
@@ -17,6 +17,15 @@
     padding: 0;
     margin-left: 2vw;
     text-decoration: none;
+}
+
+.login-link:hover,
+.login-link:focus,
+.login-link:active,
+.register-link:hover,
+.register-link:focus,
+.register-link:active {
+    text-decoration: underline;
 }
 
 .demo-btn {
@@ -34,14 +43,7 @@
     text-decoration: none;
 }
 
-.signin-btn:hover,
-.signin-btn:focus,
-.signin-btn:active,
-.signup-btn:hover,
-.signup-btn:focus,
-.signup-btn:active {
-    text-decoration: underline;
-}
+
 
 .demo-btn:hover,
 .demo-btn:focus {
