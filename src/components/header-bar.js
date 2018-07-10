@@ -1,33 +1,35 @@
 import React from 'react';
-import {connect} from 'react-redux';
-import {clearAuth} from '../actions/auth';
-import {clearAuthToken} from '../local-storage';
+import { connect } from 'react-redux';
+import { clearAuth } from '../actions/auth';
+import { clearAuthToken } from '../local-storage';
+import { Link } from 'react-router-dom'
 
-export class HeaderBar extends React.Component {
-    logOut() {
-        this.props.dispatch(clearAuth());
-        clearAuthToken();
-    }
+import NavBar from "./nav-bar";
 
-    render() {
-        // Only render the log out button if we are logged in
-        let logOutButton;
-        if (this.props.loggedIn) {
-            logOutButton = (
-                <button onClick={() => this.logOut()}>Log out</button>
-            );
-        }
-        return (
-            <div className="header-bar">
-                <h1>Foo App</h1>
-                {logOutButton}
-            </div>
-        );
-    }
+import './header-bar-new.css'
+
+class HeaderBarNew extends React.Component {
+  render() {
+    return (
+      <React.Fragment>
+        <header className="header-bar" role="banner">
+          <div>
+            <Link
+              to="/"
+              className="header-link"
+            >
+              FlashFluent
+            </Link>
+          </div>
+          <NavBar/>
+        </header>
+      </React.Fragment>
+    )
+  }
 }
 
 const mapStateToProps = state => ({
-    loggedIn: state.auth.currentUser !== null
+  loggedIn: state.auth.currentUser !== null
 });
 
-export default connect(mapStateToProps)(HeaderBar);
+export default connect(mapStateToProps)(HeaderBarNew);
