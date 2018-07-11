@@ -1,8 +1,8 @@
 import React from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import requiresLogin from './requires-login';
-import {fetchQuestions} from '../actions/questions';
-import {updateCorrectAnswer} from '../actions/answer';
+import { fetchQuestions } from '../actions/questions';
+import { updateCorrectAnswer } from '../actions/answer';
 
 export class Dashboard extends React.Component {
   constructor(props) {
@@ -13,7 +13,7 @@ export class Dashboard extends React.Component {
   }
 
   componentDidMount() {
-      this.props.dispatch(fetchQuestions());
+    this.props.dispatch(fetchQuestions());
   }
 
   onSubmit = (e) => {
@@ -50,76 +50,76 @@ export class Dashboard extends React.Component {
     console.log('user input to be sent', obj);
   };
 
-    render() {
-      console.log('RENDER', this.props.questions.data.length);
-        return (
-            <div className="dashboard">
-                <div className="dashboard-username">
-                    Username: {this.props.username}
-                </div>
-                <div className="dashboard-name">Name: {this.props.name}</div>
-                <div className="dashboard-protected-data">
+  render() {
+    console.log('RENDER', this.props.questions.data.length);
+    return (
+      <div className="dashboard">
+        <div className="dashboard-username">
+          Username: {this.props.username}
+        </div>
+        <div className="dashboard-name">Name: {this.props.name}</div>
+        <div className="dashboard-protected-data">
 
-                </div>
-                <div className="">
-                  <div>
-                    { this.props.questions.data.length > 0
-                      ?
-                      this.props.questions.data[this.state.questionIndex].q
-                      :
-                      <p>hello</p>
-                    }
-                  </div>
-                  <div>
-                    { this.props.answers.correctAnswer
-                      ?
-                      <p>
-                        Answer is: {this.props.answers.correctAnswer}
-                      </p>
-                      :
-                      <p>What is the answer?</p>
-                    }
-                  </div>
-                  <label>
-                    <input
-                      id="text-input"
-                      type="text"
-                      title="Answer"
-                      aria-label="Answer"
-                      ref={input => (this.input = input)}
-                    />
-                  </label>
-                </div>
-                <div>
-                  <button
-                    type="submit"
-                    onClick={this.onSubmit}
-                    aria-label="click to submit answer"
-                  >
-                    Submit
+        </div>
+        <div className="">
+          <div>
+            {this.props.questions.data.length > 0
+              ?
+              this.props.questions.data[this.state.questionIndex].q
+              :
+              <p>hello</p>
+            }
+          </div>
+          <div>
+            {this.props.answers.correctAnswer
+              ?
+              <p>
+                Answer is: {this.props.answers.correctAnswer}
+              </p>
+              :
+              <p>What is the answer?</p>
+            }
+          </div>
+          <label>
+            <input
+              id="text-input"
+              type="text"
+              title="Answer"
+              aria-label="Answer"
+              ref={input => (this.input = input)}
+            />
+          </label>
+        </div>
+        <div>
+          <button
+            type="submit"
+            onClick={this.onSubmit}
+            aria-label="click to submit answer"
+          >
+            Submit
                   </button>
-                  <button
-                    disabled={!this.props.answers.correctAnswer}
-                  >
-                    Next
+          <button
+            disabled={!this.props.answers.correctAnswer}
+          >
+            Next
                   </button>
-                </div>
+        </div>
 
 
-            </div>
-        );
-    }
+      </div>
+    );
+  }
 }
 
 const mapStateToProps = state => {
-    const {currentUser} = state.auth;
-    return {
-        username: state.auth.currentUser.username,
-        name: `${currentUser.firstName} ${currentUser.lastName}`,
-        questions: state.questions,
-        answers: state.answer,
-        questionIndex: 0
-    };
+  const { currentUser } = state.auth;
+  return {
+    username: state.auth.currentUser.username,
+    name: `${currentUser.fullname}`,
+    questions: state.questions,
+    answers: state.answer,
+    questionIndex: 0
+  };
 };
 
 export default requiresLogin()(connect(mapStateToProps)(Dashboard));
