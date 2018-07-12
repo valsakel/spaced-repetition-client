@@ -51,7 +51,6 @@ export class Dashboard extends React.Component {
   };
 
   render() {
-    console.log('RENDER', this.props.questions.data.length);
     return (
       <div className="dashboard">
         <div className="dashboard-username">
@@ -63,11 +62,11 @@ export class Dashboard extends React.Component {
         </div>
         <div className="">
           <div>
-            {this.props.questions.data.length > 0
+            {this.props.questions.data
               ?
-              this.props.questions.data[this.state.questionIndex].q
+              this.props.questions.data.prompt
               :
-              <p>hello</p>
+              <p>Loading</p>
             }
           </div>
           <div>
