@@ -2,7 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import requiresLogin from './requires-login';
 import { fetchQuestions } from '../actions/questions';
-import { updateCorrectAnswer } from '../actions/answer';
+import { fetchAnswers } from '../actions/answers';
+import { updateCorrectAnswer } from '../actions/answers';
 
 export class Dashboard extends React.Component {
   constructor(props) {
@@ -18,36 +19,46 @@ export class Dashboard extends React.Component {
 
   onSubmit = (e) => {
     e.preventDefault();
-    console.log('onSubmit answer ran');
-    if (this.input.value === this.props.questions.data[this.state.questionIndex].a) {
-      console.log('Answer is correct');
-      if (this.state.questionIndex < 2) {
-        this.setState({
-          questionIndex: ++this.state.questionIndex
-        });
-      } else {
-        this.setState({
-          questionIndex: 0
-        });
-      }
-    } else {
-      console.log('Answer is wrong');
-    }
+    console.log(this.props.head);
 
-    const obj = {
-      currQuestion: this.props.questions.data[this.state.questionIndex].q,
-      userAnswer: this.input.value
+    const userAnswer = {
+      answer: this.input.value,
+      head: this.props.head
     };
 
-    this.props.dispatch(updateCorrectAnswer(this.props.questions.data[this.state.questionIndex].q));
+    console.log('Send user answer to server', userAnswer);
 
-    // clear user input
-    // this.input.value = '';
-
-    // set focus back to input field
-    this.input.focus();
-
-    console.log('user input to be sent', obj);
+    this.props.dispatch(fetchAnswers(userAnswer))
+    // console.log('onSubmit answer ran');
+    // if (this.input.value === this.props.questions.data[this.state.questionIndex].a) {
+    //   console.log('Answer is correct');
+    //   if (this.state.questionIndex < 2) {
+    //     this.setState({
+    //       questionIndex: ++this.state.questionIndex
+    //     });
+    //   } else {
+    //     this.setState({
+    //       questionIndex: 0
+    //     });
+    //   }
+    // } else {
+    //   console.log('Answer is wrong');
+    // }
+    //
+    // const obj = {
+    //   currQuestion: this.props.questions.data[this.state.questionIndex].q,
+    //   userAnswer: this.input.value
+    // };
+    //
+    // this.props.dispatch(updateCorrectAnswer(this.props.questions.data[this.state.questionIndex].q));
+    //
+    // // clear user input
+    // // this.input.value = '';
+    //
+    // // set focus back to input field
+    // this.input.focus();
+    //
+    // console.log('user input to be sent', obj);
   };
 
   render() {
@@ -112,9 +123,11 @@ export class Dashboard extends React.Component {
 
 const mapStateToProps = state => {
   const { currentUser } = state.auth;
+  console.log(currentUser);
   return {
     username: state.auth.currentUser.username,
     name: `${currentUser.fullname}`,
+    head: `${currentUser.head}`,
     questions: state.questions,
     answers: state.answer,
     questionIndex: 0

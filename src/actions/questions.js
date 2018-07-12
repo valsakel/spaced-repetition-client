@@ -21,7 +21,7 @@ export const fetchQuestions = () => (dispatch, getState) => {
   // }];
   // dispatch(fetchQuestionsSuccess(dummyArray))
 
-  return fetch(`${API_BASE_URL}/questions`, {
+  return fetch(`${API_BASE_URL}/questions/next`, {
     method: 'GET',
     headers: {
       // Provide our auth token as credentials

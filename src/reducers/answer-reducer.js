@@ -1,6 +1,6 @@
 import {
   UPDATE_CORRECT_ANSWER
-} from '../actions/answer';
+} from '../actions/answers';
 
 const initialState = {
   correctAnswer: null
