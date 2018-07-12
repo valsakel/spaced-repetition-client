@@ -1,0 +1,16 @@
+.form-input {
+    height: 60px;
+}
+
+.form-input label {
+    display: block;
+    text-align: center;
+}
+
+.form-error {
+    /*position: absolute;*/
+    /*bottom: -1.5rem;*/
+    color: #D50000;
+    /*text-transform: uppercase;*/
+    font-size: 0.8rem;
+}

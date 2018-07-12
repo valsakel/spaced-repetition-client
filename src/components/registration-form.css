@@ -1,0 +1,16 @@
+.register-form {
+    margin: 0 auto;
+}
+
+.register-form-btn {
+    margin: 10px;
+    color: #ffffff;
+    border: 2px solid #210d44;
+    background-color: #210d44;
+    font-size: calc(0.8rem + .9vw);
+    padding: 1% 6% 1% 6%;
+    -webkit-clip-path: polygon(10% 0, 90% 0, 100% 100%, 0% 100%);
+    clip-path: polygon(10% 0, 90% 0, 100% 100%, 0% 100%);
+}
+
+

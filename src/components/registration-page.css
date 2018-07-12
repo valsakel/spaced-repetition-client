@@ -1,0 +1,17 @@
+.register-page-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 300px;
+    margin: 0 auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+}
+
+.register-form-wrapper {
+    margin-top: 35px;
+    background-color: #f89809;
+    border-radius: 50px;
+
+}
