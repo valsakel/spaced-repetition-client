@@ -7,6 +7,10 @@
     text-align: center;
 }
 
+.form-input input {
+    line-height: 1.22rem;
+}
+
 .form-error {
     /*position: absolute;*/
     /*bottom: -1.5rem;*/

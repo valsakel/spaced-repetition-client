@@ -12,15 +12,20 @@ export function LoginPage(props) {
     return <Redirect to="/dashboard" />;
   }
   return (
-    <div className="home">
-      <h2>Log in</h2>
-      <LoginForm />
-      <p
-        className="form-link-wrapper">
-        New to FF?
-        <Link to="/register">Register</Link>
-      </p>
-    </div>
+    <main className="register-page-wrapper">
+      <div className="register-form-wrapper">
+        <h2>Log in</h2>
+        <LoginForm />
+        <p
+          className="form-link-wrapper">
+          New to FF?
+          <Link to="/register">Register</Link>
+        </p>
+      </div>
+    </main>
+
+
+
   );
 }
 
