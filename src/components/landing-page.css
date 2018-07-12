@@ -96,6 +96,7 @@
     width: 200px;
     /*min-width: 150px;*/
     padding-left: 5%;
+    text-align: center;
 }
 
 .lp-about-section-details div:last-child {

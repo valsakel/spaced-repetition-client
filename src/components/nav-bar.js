@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import { clearAuth } from "../actions/auth";
 import { clearAuthToken } from "../local-storage";
@@ -26,12 +27,17 @@ class NavBar extends React.Component {
             <React.Fragment>
               <Link
                 to={`/dashboard`}
-                className="dashbrd-btn"
+                className="dashbrd-link"
                 aria-label="Click to register"
               >
                 Dashboard
               </Link>
-              <button onClick={this.signOut}>Sign out</button>
+              <button
+                className='signout-btn'
+                onClick={this.signOut}
+              >
+                Sign out
+              </button>
             </React.Fragment>
           :
             <React.Fragment>
@@ -64,4 +70,8 @@ class NavBar extends React.Component {
   }
 }
 
-export default NavBar;
+const mapStateToProps = state => ({
+  loggedIn: state.auth.currentUser !== null
+});
+
+export default connect(mapStateToProps)(NavBar);

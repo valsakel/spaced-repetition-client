@@ -25,7 +25,6 @@ export function LandingPage(props) {
           <h2 className="lp-hero-header">
             Memorizing words in a foreign language never been easier
           </h2>
-          {/*<div className="landing-page-welcome-footer">*/}
           <Link
             to={`/register`}
             className="lp-hero-btn"
@@ -55,20 +54,8 @@ export function LandingPage(props) {
               {/*</div>*/}
 
               <p>
-                Built-in spaced repetition algorithm ensures that you keep learning
-                words that don't stick.
-
-              </p>
-            </div>
-            <div>
-              <img
-                className="lp-about-section-icon"
-                src={algorithm_icon}
-                alt="algorithm"
-              />
-              <p>
-                Built-in spaced repetition algorithm ensures that you keep learning
-                words that don't stick.
+                Built-in timer will remind you to take breaks every 20 minutes
+                to re-energize.
 
               </p>
             </div>
@@ -79,7 +66,17 @@ export function LandingPage(props) {
                 alt="algorithm"
               />
               <p>
-                Carefully chosen color scheme for this app is intended to increase brain recognition and stimulate memory.
+                Color scheme is intended to increase brain recognition and stimulate memory.
+              </p>
+            </div>
+            <div>
+              <img
+                className="lp-about-section-icon"
+                src={algorithm_icon}
+                alt="algorithm"
+              />
+              <p>
+                Learn new words faster through a built-in spaced repetition technique.
 
               </p>
             </div>

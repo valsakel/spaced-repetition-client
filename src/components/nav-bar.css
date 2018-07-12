@@ -10,11 +10,14 @@
 
 .login-link,
 .register-link,
-.demo-btn {
+.demo-btn,
+.dashbrd-link {
     align-self: center;
 }
 
-.login-link, .register-link {
+.login-link,
+.register-link,
+.dashbrd-link {
     font-size: calc(0.6rem + .9vw);
     white-space: nowrap;
     color: #ffffff;
@@ -30,7 +33,10 @@
 .login-link:active,
 .register-link:hover,
 .register-link:focus,
-.register-link:active {
+.register-link:active,
+.dashbrd-link:hover,
+.dashbrd-link:focus,
+.dashbrd-link:active {
     text-decoration: underline;
 }
 
@@ -49,12 +55,31 @@
     text-decoration: none;
 }
 
-
-
 .demo-btn:hover,
 .demo-btn:focus {
     color: #f89809;
     border: #f89809 2px solid;
     background-color: transparent;
     background-image: linear-gradient(transparent, transparent);
+}
+
+.signout-btn {
+    font-size: calc(0.5rem + .9vw);
+    padding: 2%;
+    white-space: nowrap;
+    color: #ffffff;
+    background-color: transparent;
+    box-shadow: 0px 1px 4px -2px #333;
+    border: #ffffff 2px solid;
+    margin-left: 2vw;
+    transition: all .3s;
+    text-decoration: none;
+}
+
+.signout-btn:hover,
+.signout-btn:focus {
+    color: #210d44;
+    border: #ffffff 2px solid;
+    background-color: #ffffff;
+    cursor: pointer;
 }
