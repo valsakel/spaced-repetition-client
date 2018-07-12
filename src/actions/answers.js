@@ -17,7 +17,7 @@ export const fetchAnswers = data => (dispatch, getState) => {
 
   const authToken = getState().auth.authToken;
 
-  return fetch(`${API_BASE_URL}/answers`, {
+  return fetch(`${API_BASE_URL}/questions/answer`, {
     method: 'POST',
     headers: {
       // Provide our auth token as credentials
