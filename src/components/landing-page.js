@@ -14,9 +14,9 @@ import alarmclock_icon from '../images/alarm-clock.svg';
 export function LandingPage(props) {
   console.log('LANDING PAGE', props);
   // // If we are logged in redirect straight to the user's dashboard
-  if (props.loggedIn) {
-      return <Redirect to="/dashboard" />;
-  }
+  // if (props.loggedIn) {
+  //     return <Redirect to="/dashboard" />;
+  // }
 
   return (
     <React.Fragment>
