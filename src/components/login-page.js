@@ -15,7 +15,11 @@ export function LoginPage(props) {
     <div className="home">
       <h2>Log in</h2>
       <LoginForm />
-      <Link to="/register">Register</Link>
+      <p
+        className="form-link-wrapper">
+        New to FF?
+        <Link to="/register">Register</Link>
+      </p>
     </div>
   );
 }

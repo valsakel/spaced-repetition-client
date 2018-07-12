@@ -15,9 +15,13 @@ export function RegistrationPage(props) {
     return (
         <main className="register-page-wrapper">
           <div className="register-form-wrapper">
-            <h2>Register</h2>
+            <h2>Register Form</h2>
             <RegistrationForm />
-            <Link to="/">Login</Link>
+            <p
+              className="form-link-wrapper">
+              Already have FF account?
+              <Link to="/">Log in</Link>
+            </p>
             </div>
         </main>
     );

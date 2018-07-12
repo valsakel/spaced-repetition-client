@@ -7,10 +7,18 @@
     color: #ffffff;
     border: 2px solid #210d44;
     background-color: #210d44;
-    font-size: calc(0.8rem + .9vw);
+    font-size: calc(0.8rem + .5vw);
     padding: 1% 6% 1% 6%;
-    -webkit-clip-path: polygon(10% 0, 90% 0, 100% 100%, 0% 100%);
-    clip-path: polygon(10% 0, 90% 0, 100% 100%, 0% 100%);
+    transition: all .3s;
+    /*-webkit-clip-path: polygon(10% 0, 90% 0, 100% 100%, 0% 100%);*/
+    /*clip-path: polygon(10% 0, 90% 0, 100% 100%, 0% 100%);*/
+}
+
+.register-form-btn:hover {
+    color: #210d44;
+    border: #210d44 2px solid;
+    background-color: transparent;
+    cursor: pointer;
 }
 
 

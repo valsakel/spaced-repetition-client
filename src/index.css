@@ -3,3 +3,21 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+.form-link-wrapper {
+  margin: 20px auto 20px auto;
+  text-align: center;
+}
+
+.form-link-wrapper a {
+  display: inline-block;
+  color: #210d44;
+
+  letter-spacing: normal;
+  margin-left: 10px;
+}
+
+.form-link-wrapper a:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
