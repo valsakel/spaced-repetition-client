@@ -2,8 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import requiresLogin from './requires-login';
 import { fetchQuestions } from '../actions/questions';
-import { fetchAnswers } from '../actions/answers';
-import { updateCorrectAnswer } from '../actions/answers';
+import { clearAnswer, fetchAnswers } from '../actions/answers';
 
 export class Dashboard extends React.Component {
   constructor(props) {
@@ -17,7 +16,7 @@ export class Dashboard extends React.Component {
     this.props.dispatch(fetchQuestions());
   }
 
-  onSubmit = (e) => {
+  onSubmit = e => {
     e.preventDefault();
     console.log(this.props.head);
 
@@ -25,8 +24,6 @@ export class Dashboard extends React.Component {
       answer: this.input.value,
       head: this.props.head
     };
-
-    console.log('Send user answer to server', userAnswer);
 
     this.props.dispatch(fetchAnswers(userAnswer))
     // console.log('onSubmit answer ran');
@@ -61,6 +58,18 @@ export class Dashboard extends React.Component {
     // console.log('user input to be sent', obj);
   };
 
+  onNext = e => {
+    e.preventDefault();
+    this.props.dispatch(clearAnswer());
+    this.props.dispatch(fetchQuestions());
+
+    // clear user input
+    this.input.value = '';
+
+    // set focus back to input field
+    this.input.focus();
+  };
+
   render() {
     return (
       <div className="dashboard">
@@ -75,16 +84,18 @@ export class Dashboard extends React.Component {
           <div>
             {this.props.questions.data
               ?
-              this.props.questions.data.prompt
+              <p>
+                Question is: {this.props.questions.data.prompt}
+                </p>
               :
               <p>Loading</p>
             }
           </div>
           <div>
-            {this.props.answers.correctAnswer
+            {this.props.answer
               ?
               <p>
-                Answer is: {this.props.answers.correctAnswer}
+                Answer is: {this.props.answer}
               </p>
               :
               <p>What is the answer?</p>
@@ -109,7 +120,9 @@ export class Dashboard extends React.Component {
             Submit
                   </button>
           <button
-            disabled={!this.props.answers.correctAnswer}
+            type="button"
+            disabled={!this.props.answer}
+            onClick={this.onNext}
           >
             Next
                   </button>
@@ -129,7 +142,7 @@ const mapStateToProps = state => {
     name: `${currentUser.fullname}`,
     head: `${currentUser.head}`,
     questions: state.questions,
-    answers: state.answer,
+    answer: state.answer.answer,
     questionIndex: 0
   };
 };

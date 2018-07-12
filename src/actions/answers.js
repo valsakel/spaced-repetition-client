@@ -1,9 +1,9 @@
 import {API_BASE_URL} from '../config';
 import {normalizeResponseErrors} from './utils';
 
-export const UPDATE_CORRECT_ANSWER = 'UPDATE_CORRECT_ANSWER';
-export const updateCorrectAnswer = data => ({
-  type: UPDATE_CORRECT_ANSWER,
+export const CLEAR_ANSWER = 'CLEAR_ANSWER';
+export const clearAnswer = data => ({
+  type: CLEAR_ANSWER,
   data
 });
 
@@ -30,5 +30,6 @@ export const fetchAnswers = data => (dispatch, getState) => {
     .then(res => res.json())
     .then(res => {
       console.log('FETCH ANSWER', res);
+      dispatch(fetchAnswerSuccess(res));
     })
-}
+};

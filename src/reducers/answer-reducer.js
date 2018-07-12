@@ -1,17 +1,23 @@
 import {
-  UPDATE_CORRECT_ANSWER
+  CLEAR_ANSWER,
+  FETCH_ANSWER_SUCCESS
 } from '../actions/answers';
 
 const initialState = {
-  correctAnswer: null
+  answer: null
 };
 
 export default function reducer(state = initialState, action) {
-  if (action.type === UPDATE_CORRECT_ANSWER) {
-    console.log('UPDATE_CORRECT_ANSWER ran', action.data);
+  if (action.type === FETCH_ANSWER_SUCCESS) {
+    console.log('FETCH_ANSWER_SUCCESS ran', action.data);
     return Object.assign({}, state, {
-      correctAnswer: action.data
+      answer: action.data.answer
     });
+  } else if (action.type === CLEAR_ANSWER) {
+    console.log('CLEAR_ANSWER ran', action.data);
+    return {
+      answer: null
+    };
   }
 
   return state;
