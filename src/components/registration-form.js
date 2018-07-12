@@ -1,5 +1,6 @@
 import React from 'react';
 import { Field, reduxForm, focus } from 'redux-form';
+import { connect } from 'react-redux'
 import { registerUser } from '../actions/users';
 import { login } from '../actions/auth';
 import Input from './input';
@@ -23,7 +24,7 @@ export class RegistrationForm extends React.Component {
     }
 
     render() {
-      console.log('SIGN UP PROPS', this.props);
+      // console.log('SIGN UP PROPS', this.props.form.syncErrors.username);
         return (
             <form
                 className="register-form"
@@ -74,8 +75,19 @@ export class RegistrationForm extends React.Component {
     }
 }
 
-export default reduxForm({
+RegistrationForm = reduxForm({
     form: 'registration',
     onSubmitFail: (errors, dispatch) =>
         dispatch(focus('registration', Object.keys(errors)[0]))
 })(RegistrationForm);
+
+export default RegistrationForm = connect(
+  state => {
+    return {
+      isAuthenticated: state.auth.currentUser !== null,
+      user: state.auth.currentUser,
+      // error: state.auth.error
+    }
+  }
+)(RegistrationForm);
+
