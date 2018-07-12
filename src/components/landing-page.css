@@ -1,10 +1,7 @@
 /* local styles for landing page */
 
 .lp-main-section {
-
-    /*height: calc(90vh - 3vw);*/
     background: linear-gradient(#210d44, #9198e5);
-
 }
 
 .lp-hero-section {

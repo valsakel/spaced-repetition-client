@@ -24,7 +24,8 @@ export class RegistrationForm extends React.Component {
     }
 
     render() {
-      // console.log('SIGN UP PROPS', this.props.form.syncErrors.username);
+      console.log('SIGN UP PROPS', this.props);
+
         return (
             <form
                 className="register-form"

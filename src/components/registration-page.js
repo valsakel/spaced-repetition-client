@@ -20,7 +20,7 @@ export function RegistrationPage(props) {
             <p
               className="form-link-wrapper">
               Already have FF account?
-              <Link to="/">Log in</Link>
+              <Link to="/login">Log in</Link>
             </p>
             </div>
         </main>

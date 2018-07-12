@@ -11,13 +11,13 @@ body {
 
 .form-link-wrapper a {
   display: inline-block;
-  color: #210d44;
-
+  color: #ffffff;
+  text-decoration: none;
   letter-spacing: normal;
   margin-left: 10px;
 }
 
 .form-link-wrapper a:hover {
   color: #ffffff;
-  text-decoration: none;
+  text-decoration: underline;
 }

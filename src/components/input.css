@@ -14,3 +14,7 @@
     /*text-transform: uppercase;*/
     font-size: 0.8rem;
 }
+
+label {
+    color: #210d44;
+}
