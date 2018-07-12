@@ -1,26 +1,26 @@
 import { API_BASE_URL } from '../config';
 import { normalizeResponseErrors } from './utils';
 
-export const FETCH_QUESTIONS_SUCCESS = 'FETCH_QUESTIONS_SUCCESS';
-export const fetchQuestionsSuccess = data => ({
-  type: FETCH_QUESTIONS_SUCCESS,
+export const FETCH_NEXT_QUESTION_REQUEST = 'FETCH_NEXT_QUESTION_REQUEST';
+export const fetchNextQuestionRequest = () => ({
+  type: FETCH_NEXT_QUESTION_REQUEST
+});
+
+export const FETCH_NEXT_QUESTION_SUCCESS = 'FETCH_NEXT_QUESTION_SUCCESS';
+export const fetchNextQuestionSuccess = data => ({
+  type: FETCH_NEXT_QUESTION_SUCCESS,
   data
 });
 
-export const FETCH_QUESTIONS_ERROR = 'FETCH_QUESTIONS_ERROR';
-export const fetchQuestionsError = error => ({
-  type: FETCH_QUESTIONS_ERROR,
+export const FETCH_NEXT_QUESTION_ERROR = 'FETCH_NEXT_QUESTION_ERROR';
+export const fetchNextQuestionError = error => ({
+  type: FETCH_NEXT_QUESTION_ERROR,
   error
 });
 
-export const fetchQuestions = () => (dispatch, getState) => {
+export const fetchNextQuestion = () => (dispatch, getState) => {
+  dispatch(fetchNextQuestionRequest());
   const authToken = getState().auth.authToken;
-  // const dummyArray = [{
-  //   question: 'ПРИВЕТ',
-  //   answer: 'HELLO'
-  // }];
-  // dispatch(fetchQuestionsSuccess(dummyArray))
-
   return fetch(`${API_BASE_URL}/questions/next`, {
     method: 'GET',
     headers: {
@@ -31,9 +31,9 @@ export const fetchQuestions = () => (dispatch, getState) => {
     .then(res => normalizeResponseErrors(res))
     .then(res => res.json())
     .then(data => {
-      dispatch(fetchQuestionsSuccess(data));
+      dispatch(fetchNextQuestionSuccess(data));
     })
     .catch(err => {
-      dispatch(fetchQuestionsError(err));
+      dispatch(fetchNextQuestionError(err));
     });
 };
