@@ -86,7 +86,7 @@ export class Dashboard extends React.Component {
               ?
               <p>
                 Question is: {this.props.questions.data.prompt}
-                </p>
+              </p>
               :
               <p>Loading</p>
             }

@@ -23,7 +23,7 @@ class NavBar extends React.Component {
           className="nav-bar"
           role="navigation">
           {this.props.loggedIn
-          ?
+            ?
             <React.Fragment>
               <Link
                 to={`/dashboard`}
@@ -39,7 +39,7 @@ class NavBar extends React.Component {
                 Sign out
               </button>
             </React.Fragment>
-          :
+            :
             <React.Fragment>
               <Link
                 to={`/login`}

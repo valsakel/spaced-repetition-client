@@ -21,7 +21,7 @@ class HeaderBarNew extends React.Component {
               FlashFluent
             </Link>
           </div>
-          <NavBar/>
+          <NavBar />
         </header>
       </React.Fragment>
     )

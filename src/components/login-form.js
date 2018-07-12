@@ -1,8 +1,8 @@
 import React from 'react';
-import {Field, reduxForm, focus} from 'redux-form';
+import { Field, reduxForm, focus } from 'redux-form';
 import Input from './input';
-import {login} from '../actions/auth';
-import {required, nonEmpty} from '../validators';
+import { login } from '../actions/auth';
+import { required, nonEmpty } from '../validators';
 
 export class LoginForm extends React.Component {
   onSubmit(values) {
@@ -14,7 +14,7 @@ export class LoginForm extends React.Component {
     if (this.props.error) {
       error = (
         <div className="form-error" aria-live="polite">
-            {this.props.error}
+          {this.props.error}
         </div>
       );
     }

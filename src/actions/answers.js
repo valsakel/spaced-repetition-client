@@ -1,5 +1,5 @@
-import {API_BASE_URL} from '../config';
-import {normalizeResponseErrors} from './utils';
+import { API_BASE_URL } from '../config';
+import { normalizeResponseErrors } from './utils';
 
 export const CLEAR_ANSWER = 'CLEAR_ANSWER';
 export const clearAnswer = data => ({
