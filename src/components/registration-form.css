@@ -14,7 +14,9 @@
     /*clip-path: polygon(10% 0, 90% 0, 100% 100%, 0% 100%);*/
 }
 
-.register-form-btn:hover {
+.register-form-btn:hover,
+.register-form-btn:active,
+.register-form-btn:focus {
     color: #210d44;
     border: #210d44 2px solid;
     background-color: transparent;

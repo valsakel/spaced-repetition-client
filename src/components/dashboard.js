@@ -4,6 +4,8 @@ import requiresLogin from './requires-login';
 import { fetchNextQuestion } from '../actions/questions';
 import { clearAnswer, fetchAnswers } from '../actions/answers';
 
+import './dashboard.css';
+
 export class Dashboard extends React.Component {
   componentDidMount() {
     this.props.dispatch(fetchNextQuestion());
@@ -47,9 +49,12 @@ export class Dashboard extends React.Component {
           <div>
             {this.props.questions.data
               ?
-              <p>
-                Question is: {this.props.questions.data.prompt}
-              </p>
+              <img
+                className="dashboard-card-img"
+                src={this.props.questions.data.prompt}
+                // src={randomImg}
+                alt="algorithm"
+              />
               :
               <p>Loading</p>
             }
