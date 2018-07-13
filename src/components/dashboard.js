@@ -11,6 +11,63 @@ export class Dashboard extends React.Component {
     this.props.dispatch(fetchNextQuestion());
   }
 
+  renderResults() {
+    if (this.props.loading) {
+      return <p>Loading next question...</p>;
+    }
+
+    if (this.props.error) {
+      return <strong>{this.props.error}</strong>;
+    }
+
+    return (
+      <React.Fragment>
+        <div>
+          <img
+            className="dashboard-card-img"
+            src={this.props.question.prompt}
+            alt="algorithm"
+          />
+        </div>
+        <div>
+          {this.props.answer
+            ?
+            <p>
+              Answer is: {this.props.answer}
+            </p>
+            :
+            <p>What is the answer?</p>
+          }
+        </div>
+        <label>
+          <input
+            id="text-input"
+            type="text"
+            title="Answer"
+            aria-label="Answer"
+            ref={input => (this.input = input)}
+          />
+        </label>
+        <div>
+          <button
+            type="submit"
+            onClick={this.onSubmit}
+            aria-label="click to submit answer"
+          >
+            Submit
+          </button>
+          <button
+            type="button"
+            disabled={!this.props.answer}
+            onClick={this.onNext}
+          >
+            Next
+          </button>
+        </div>
+      </React.Fragment>
+    );
+  }
+
   onSubmit = e => {
     e.preventDefault();
     const userAnswer = {
@@ -23,11 +80,7 @@ export class Dashboard extends React.Component {
     e.preventDefault();
     this.props.dispatch(clearAnswer());
     this.props.dispatch(fetchNextQuestion());
-
-    // clear user input
     this.input.value = '';
-
-    // set focus back to input field
     this.input.focus();
   };
 
@@ -37,62 +90,12 @@ export class Dashboard extends React.Component {
         <div className="dashboard-username">
           Username: {this.props.username}
         </div>
-        <div className="dashboard-name">Name: {this.props.name}</div>
-        <div className="dashboard-protected-data">
-
+        <div className="dashboard-name">
+          Name: {this.props.name}
         </div>
-        <div className="">
-          <div>
-            {this.props.question
-              ?
-              <img
-                className="dashboard-card-img"
-                src={this.props.question.prompt}
-                // src={randomImg}
-                alt="algorithm"
-              />
-              :
-              <p>Loading</p>
-            }
-          </div>
-          <div>
-            {this.props.answer
-              ?
-              <p>
-                Answer is: {this.props.answer}
-              </p>
-              :
-              <p>What is the answer?</p>
-            }
-          </div>
-          <label>
-            <input
-              id="text-input"
-              type="text"
-              title="Answer"
-              aria-label="Answer"
-              ref={input => (this.input = input)}
-            />
-          </label>
+        <div className="guess-section">
+          {this.renderResults()}
         </div>
-        <div>
-          <button
-            type="submit"
-            onClick={this.onSubmit}
-            aria-label="click to submit answer"
-          >
-            Submit
-                  </button>
-          <button
-            type="button"
-            disabled={!this.props.answer}
-            onClick={this.onNext}
-          >
-            Next
-                  </button>
-        </div>
-
-
       </div>
     );
   }
@@ -100,11 +103,12 @@ export class Dashboard extends React.Component {
 
 const mapStateToProps = state => {
   const { currentUser } = state.auth;
-  console.log('currentUser: ', currentUser);
   return {
     username: currentUser.username,
     name: `${currentUser.firstname} ${currentUser.lastname}`,
     question: state.questions.data,
+    loading: state.questions.loading,
+    error: state.questions.error,
     answer: state.answer.answer,
   };
 };
