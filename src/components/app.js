@@ -2,11 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Route, withRouter } from 'react-router-dom';
 
-import HeaderBar from './header-bar';
+import Header from './header';
 import LandingPage from './landing-page';
 import Dashboard from './dashboard';
 import RegistrationPage from './registration-page';
 import LoginPage from './login-page'
+
 import { refreshAuthToken } from '../actions/auth';
 
 export class App extends React.Component {
@@ -42,7 +43,7 @@ export class App extends React.Component {
   render() {
     return (
       <div className="app">
-        <HeaderBar />
+        <Header />
         <Route exact path="/" component={LandingPage} />
         <Route exact path="/dashboard" component={Dashboard} />
         <Route exact path="/register" component={RegistrationPage} />

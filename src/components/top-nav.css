@@ -1,5 +1,5 @@
 /* local styles for navigation menu */
-.nav-bar {
+nav {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
@@ -44,7 +44,7 @@
     font-size: calc(0.5rem + .9vw);
     padding: 2%;
     white-space: nowrap;
-    color: #210d44;
+    color: #210d44 !important;
     background-color: #f89809;
     background-image: linear-gradient(#f89809, #ffc875);
     box-shadow: 0px 1px 4px -2px #333;

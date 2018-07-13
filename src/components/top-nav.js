@@ -5,9 +5,9 @@ import { connect } from 'react-redux';
 import { clearAuth } from "../actions/auth";
 import { clearAuthToken } from "../local-storage";
 
-import './nav-bar.css'
+import './top-nav.css'
 
-class NavBar extends React.Component {
+class TopNav extends React.Component {
 
   signOut = () => {
     this.props.dispatch(clearAuth());
@@ -19,9 +19,7 @@ class NavBar extends React.Component {
     // Otherwise, render links to log in, register, and view demo components
     return (
       <React.Fragment>
-        <nav
-          className="nav-bar"
-          role="navigation">
+        <nav>
           {this.props.loggedIn
             ?
             <React.Fragment>
@@ -74,4 +72,4 @@ const mapStateToProps = state => ({
   loggedIn: state.auth.currentUser !== null
 });
 
-export default connect(mapStateToProps)(NavBar);
+export default connect(mapStateToProps)(TopNav);

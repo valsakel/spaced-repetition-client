@@ -1,27 +1,24 @@
-.header-bar {
+header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    height: calc(10vh + 3vw);
-    /*position: fixed;*/
-    /*top: 0;*/
-    /*z-index: 1;*/
+    height: calc(10vh + 3vw);    
     background-color: #210d44;
     color: white;
 }
 
-.header-link {
+header a {
     color: #ffffff;
     font-size: calc(1.2rem + .8vw);
     text-decoration: none;
     margin-left: 2vw;
 }
 
-.header-link:active,
-.header-link:hover,
-.header-link:visited {
+header a:active,
+header a:hover,
+header a:visited {
     color: #ffffff;
     text-decoration: none;
 }
