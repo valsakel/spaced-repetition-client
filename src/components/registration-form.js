@@ -15,9 +15,8 @@ export class RegistrationForm extends React.Component {
   onSubmit(values) {
     console.log('onSubmit ERROR', this.props.error);
 
-    const { username, password, firstName, lastName } = values;
-    const fullname = `${firstName} ${lastName}`;
-    const user = { username, password, fullname };
+    const { username, password, firstname, lastname } = values;
+    const user = { username, password, firstname, lastname };
     return this.props
       .dispatch(registerUser(user))
       .then(() => this.props.dispatch(login(username, password)));
@@ -35,13 +34,13 @@ export class RegistrationForm extends React.Component {
         <Field
           component={Input}
           type="text"
-          name="firstName"
+          name="firstname"
           label="First Name"
         />
         <Field
           component={Input}
           type="text"
-          name="lastName"
+          name="lastname"
           label="Last Name"
         />
         <Field

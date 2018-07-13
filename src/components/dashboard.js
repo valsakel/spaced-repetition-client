@@ -47,11 +47,11 @@ export class Dashboard extends React.Component {
         </div>
         <div className="">
           <div>
-            {this.props.questions.data
+            {this.props.question
               ?
               <img
                 className="dashboard-card-img"
-                src={this.props.questions.data.prompt}
+                src={this.props.question.prompt}
                 // src={randomImg}
                 alt="algorithm"
               />
@@ -104,12 +104,12 @@ export class Dashboard extends React.Component {
 
 const mapStateToProps = state => {
   const { currentUser } = state.auth;
-  console.log(currentUser);
+  console.log('currentUser: ', currentUser);
   return {
-    username: state.auth.currentUser.username,
-    name: `${currentUser.fullname}`,
+    username: currentUser.username,
+    name: `${currentUser.firstname} ${currentUser.lastname}`,
     head: `${currentUser.head}`,
-    questions: state.questions,
+    question: state.questions.data,
     answer: state.answer.answer,
   };
 };
