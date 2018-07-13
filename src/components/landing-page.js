@@ -18,7 +18,7 @@ export function LandingPage(props) {
       <main className="lp-main-section" role="main">
         <section className="lp-hero-section">
           <h2 className="lp-hero-header">
-            Memorizing words in a foreign language never been easier
+            Memorizing famous architectural masterpieces never been easier
           </h2>
           <Link
             to={`/register`}
