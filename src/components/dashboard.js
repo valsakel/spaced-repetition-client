@@ -54,6 +54,7 @@ export class Dashboard extends React.Component {
         <div>
           <button
             type="submit"
+            disabled={this.props.answer}
             onClick={this.onSubmit}
             aria-label="click to submit answer"
           >
@@ -63,6 +64,7 @@ export class Dashboard extends React.Component {
             type="button"
             disabled={!this.props.answer}
             onClick={this.onNext}
+            aria-label="click to reveal answer"
           >
             Next
           </button>
