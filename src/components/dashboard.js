@@ -25,18 +25,21 @@ export class Dashboard extends React.Component {
         <div>
           <img
             className="dashboard-card-img"
-            src={this.props.question.prompt}
+            src={this.props.question}
             alt="algorithm"
           />
         </div>
         <div>
-          {this.props.answer
+          {!this.props.answer
             ?
-            <p>
-              Answer is: {this.props.answer}
-            </p>
-            :
             <p>What is the answer?</p>
+            :
+            <div>
+              <p>You are {this.props.correct ? 'correct!' : 'incorrect.'}</p>
+              <p>Answer: {this.props.answer}</p>
+              <p>Score: {this.props.score}</p>
+              <p>Total: {this.props.total}</p>
+            </div>
           }
         </div>
         <label>
@@ -87,12 +90,6 @@ export class Dashboard extends React.Component {
   render() {
     return (
       <div className="dashboard">
-        <div className="dashboard-username">
-          Username: {this.props.username}
-        </div>
-        <div className="dashboard-name">
-          Name: {this.props.name}
-        </div>
         <div className="guess-section">
           {this.renderResults()}
         </div>
@@ -104,12 +101,13 @@ export class Dashboard extends React.Component {
 const mapStateToProps = state => {
   const { currentUser } = state.auth;
   return {
-    username: currentUser.username,
-    name: `${currentUser.firstname} ${currentUser.lastname}`,
     question: state.questions.data,
     loading: state.questions.loading,
     error: state.questions.error,
-    answer: state.answer.answer,
+    answer: state.answers.answer,
+    correct: state.answers.correct,
+    score: state.answers.score,
+    total: state.answers.total
   };
 };
 

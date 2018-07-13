@@ -10,8 +10,7 @@ const initialState = {
   error: null
 };
 
-export default function reducer(state = initialState, action) {
-  console.log(action);
+export default function questions(state = initialState, action) {
   switch (action.type) {
     case FETCH_NEXT_QUESTION_REQUEST:
       return Object.assign({}, state, {
