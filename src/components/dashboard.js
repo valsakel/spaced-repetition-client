@@ -13,13 +13,9 @@ export class Dashboard extends React.Component {
 
   onSubmit = e => {
     e.preventDefault();
-    console.log(this.props.head);
-
     const userAnswer = {
       answer: this.input.value,
-      head: this.props.head
     };
-
     this.props.dispatch(fetchAnswers(userAnswer))
   };
 
@@ -108,7 +104,6 @@ const mapStateToProps = state => {
   return {
     username: currentUser.username,
     name: `${currentUser.firstname} ${currentUser.lastname}`,
-    head: `${currentUser.head}`,
     question: state.questions.data,
     answer: state.answer.answer,
   };
