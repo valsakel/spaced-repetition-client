@@ -39,7 +39,7 @@ export function LandingPage(props) {
               />
 
               <p>
-                Questions are scored and shown less and less the more you get it right. Wrong answers will be reinforced by being shown again sooner than later.
+                Questions are scored and shown less and less the more you get it right.
                 {/* Built-in timer will remind you to take breaks every 20 minutes
                 to re-energize. */}
               </p>
