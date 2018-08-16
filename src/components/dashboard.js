@@ -101,7 +101,7 @@ export class Dashboard extends React.Component {
 }
 
 const mapStateToProps = state => {
-  const { currentUser } = state.auth;
+  // const { currentUser } = state.auth;
   return {
     question: state.questions.data,
     loading: state.questions.loading,

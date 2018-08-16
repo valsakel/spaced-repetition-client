@@ -29,7 +29,6 @@ export const fetchAnswers = data => (dispatch, getState) => {
     .then(res => normalizeResponseErrors(res))
     .then(res => res.json())
     .then(res => {
-      console.log('FETCH ANSWER', res);
       dispatch(fetchAnswerSuccess(res));
     })
 };
