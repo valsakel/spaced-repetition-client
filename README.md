@@ -7,6 +7,10 @@ in 1 week to practice an implementation of Linked List data structure.
 
 Live [demo](https://flashfluent.surge.sh)
 
+**Demo account for testing:**  
+username: **username**  
+password: **password**
+
 ## Screenshots
 <img src="src/images/ff_screenshots.png" alt="app log" width="60%">
 
